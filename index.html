@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Firebase Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="login_div" class="main-div">
+        <h3>Could-based Cooking and Heating Gas Meter Consumption Recoding</h3>
+        <input type="email" placeholder="Email..." id="email_field" />
+        <input type="password" placeholder="Password..." id="password_field" />
+
+        <button onclick="login()">Login to Account</button>
+    </div>
+
+    <div id="user_div" class="loggedin-div" style="text-align: center;">
+        <h3 id="user_para">Welcome</h3>
+        <h2>Your Current Usage</h2>
+        <h1 id="current_reading" style="color: red;"></h1>
+        <h1 id="current_bill" style="color: green;"></h1>
+
+        <button onclick="gotoPayment()">Pay</button><br>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyAFDVJYwgUGZVyhT0H1F_184K7dnNcF-V8",
+            authDomain: "gas-meter-29a5a.firebaseapp.com",
+            databaseURL: "https://gas-meter-29a5a-default-rtdb.firebaseio.com",
+            projectId: "gas-meter-29a5a",
+            storageBucket: "gas-meter-29a5a.appspot.com",
+            messagingSenderId: "135615477468",
+            appId: "1:135615477468:web:ffebb8f0d34da7e72be619",
+            measurementId: "G-GYF1ZZZ5M7"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
