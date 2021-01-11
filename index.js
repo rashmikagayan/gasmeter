@@ -21,7 +21,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             if (userParaDiv != null)
                 userParaDiv.innerHTML = "Welcome : " + email_id;
 
-            firebase.database().ref('/Users/' + userid + '/CurrentReading/').once('value').then((snapshot) => {
+
+            var leadsRef = firebase.database().ref('/Users/' + userid + '/CurrentReading/');
+            leadsRef.on('value', function(snapshot) {
                 currentReading = snapshot.val();
                 var currentReadingDiv = document.getElementById("current_reading");
                 if (currentReadingDiv != null) {
@@ -30,8 +32,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                 currentBill = addZeroes(currentReading * rate);
                 document.getElementById("current_bill").innerHTML = currentBill + " AUD";
             });
-
-
         }
 
     } else {
