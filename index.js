@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         if (userDiv != null) {
             document.getElementById("user_div").style.display = "block";
             document.getElementById("login_div").style.display = "none";
+            document.getElementById("signup_div").style.display = "none";
         }
 
         var user = firebase.auth().currentUser;
@@ -18,8 +19,13 @@ firebase.auth().onAuthStateChanged(function(user) {
             var currentReading = 0;
             userid = user.uid;
             var userParaDiv = document.getElementById("user_para");
-            if (userParaDiv != null)
-                userParaDiv.innerHTML = "Welcome : " + email_id;
+
+            if (userParaDiv != null) {
+                var nameRef = firebase.database().ref('/Users/' + userid + '/Name/');
+                nameRef.on('value', function(snapshot) {
+                    userParaDiv.innerHTML = "Welcome : " + snapshot.val();
+                });
+            }
 
 
             var leadsRef = firebase.database().ref('/Users/' + userid + '/CurrentReading/');
@@ -61,6 +67,29 @@ function login() {
 
 }
 
+
+function signup() {
+    var userEmail = document.getElementById("email_signup_field").value;
+    var userPass = document.getElementById("password_signup_field").value;
+    var userName = document.getElementById("name_signup_field").value;
+    var meterNo = document.getElementById("meterno_signup_field").value;
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPass)
+        .then((user) => {
+            console.log(user);
+            firebase.database().ref('Users/' + user.uid).set({
+                Name: userName,
+                CurrentReading: 0,
+                MeterNumber: meterNo
+            });
+            login();
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ..
+        });
+}
+
 function logout() {
     firebase.auth().signOut();
 }
@@ -71,6 +100,16 @@ function addZeroes(num) {
 
 function gotoPayment() {
     window.location = "payment.html";
+}
+
+function gotoSignup() {
+    document.getElementById("login_div").style.display = "none";
+    document.getElementById("signup_div").style.display = "block";
+}
+
+function gotoLogin() {
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("signup_div").style.display = "none";
 }
 
 function pay() {

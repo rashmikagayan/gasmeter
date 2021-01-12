@@ -13,7 +13,19 @@
         <input type="email" placeholder="Email..." id="email_field" />
         <input type="password" placeholder="Password..." id="password_field" />
 
-        <button onclick="login()">Login to Account</button>
+        <button onclick="login()">Login to Account</button><br>
+        <button onclick="gotoSignup()">Register as New User</button>
+    </div>
+
+    <div id="signup_div" class="main-div">
+        <h3>Could-based Cooking and Heating Gas Meter Consumption Recoding</h3>
+        <input type="text" placeholder="Name..." id="name_signup_field" />
+        <input type="email" placeholder="Email..." id="email_signup_field" />
+        <input type="password" placeholder="Password..." id="password_signup_field" />
+        <input type="text" placeholder="Meter Number" id="meterno_signup_field" />
+        <button onclick="signup()">Signup</button><br>
+        <button onclick="gotoLogin()">Already have an account?</button>
+
     </div>
 
     <div id="user_div" class="loggedin-div" style="text-align: center;">
@@ -25,6 +37,7 @@
         <button onclick="gotoPayment()">Pay</button><br>
         <button onclick="logout()">Logout</button>
     </div>
+
 
 
 
