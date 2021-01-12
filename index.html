@@ -9,22 +9,29 @@
 <body>
 
     <div id="login_div" class="main-div">
-        <h3>Could-based Cooking and Heating Gas Meter Consumption Recoding</h3>
+        <h3 style="text-align: center;">Welcome</h3>
         <input type="email" placeholder="Email..." id="email_field" />
         <input type="password" placeholder="Password..." id="password_field" />
 
         <button onclick="login()">Login to Account</button><br>
-        <button onclick="gotoSignup()">Register as New User</button>
+        <div style="display: flex; justify-content: center;">
+            <span>Not a member?</span>
+
+            <button onclick="gotoSignup()" class="button_link">Signup</button>
+        </div>
     </div>
 
     <div id="signup_div" class="main-div">
-        <h3>Could-based Cooking and Heating Gas Meter Consumption Recoding</h3>
+        <h3 style="text-align: center;">Welcome</h3>
         <input type="text" placeholder="Name..." id="name_signup_field" />
         <input type="email" placeholder="Email..." id="email_signup_field" />
         <input type="password" placeholder="Password..." id="password_signup_field" />
         <input type="text" placeholder="Meter Number" id="meterno_signup_field" />
         <button onclick="signup()">Signup</button><br>
-        <button onclick="gotoLogin()">Already have an account?</button>
+        <div style="display: flex; justify-content: center;">
+            <span>Already have an account?</span>
+            <button onclick="gotoLogin()" class="button_link">Login</button>
+        </div>
 
     </div>
 

@@ -1,9 +1,11 @@
 body {
-    background: #fff;
+    background: linear-gradient(140deg, #38e76d, #5d8ffc) no-repeat;
     padding: 0px;
     margin: 0px;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 input,
@@ -14,11 +16,13 @@ button {
 
 .main-div,
 .loggedin-div {
+    background-color: white;
     width: 20%;
     margin: 0px auto;
     margin-top: 150px;
     padding: 20px;
     display: none;
+    border-radius: 10px;
 }
 
 .main-div input {
@@ -41,10 +45,10 @@ button {
 
 .main-div button,
 .loggedin-div button {
-    background: #5d8ffc;
+    background: #38e76d;
     color: #fff;
-    border: 1px solid #5d8ffc;
-    border-radius: 5px;
+    border: 1px solid #5dfc8d;
+    border-radius: 40px;
     padding: 15px;
     display: block;
     width: 100%;
@@ -58,5 +62,23 @@ button {
     background: #fff;
     color: #5d8ffc;
     border: 1px solid #5d8ffc;
+    cursor: pointer;
+}
+
+.main-div .button_link {
+    border: none;
+    color: #38e76d;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    width: 100px;
+}
+
+.main-div .button_link button:hover {
+    background: #fff;
+    color: green;
     cursor: pointer;
 }

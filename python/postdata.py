@@ -2,7 +2,18 @@ from firebase import firebase
 firebase = firebase.FirebaseApplication(
     'https://gas-meter-29a5a-default-rtdb.firebaseio.com/', None)
 
-readingValue = "22"
-result = firebase.put(
-    '/Users/b0G1q1rwCNSguSq1NUwA1pm7pXg2/', "CurrentReading", readingValue)
-print(result)
+
+def updateReading(readingValue, meterNumber):
+    for uid in firebase.get('Users', ""):
+        fetchMeterNo = firebase.get('Users/'+uid + "/MeterNumber", "")
+        if(fetchMeterNo == meterNumber):
+            userId = uid
+            print(uid)
+            break
+    updatedata = firebase.put(
+        '/Users/'+userId+"/", "CurrentReading", readingValue)
+
+    print(updatedata)
+
+
+updateReading(45, "225")
